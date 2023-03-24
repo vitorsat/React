@@ -1,15 +1,24 @@
-import Post from './Post';
+import { Post } from './components/Post';
 import { Header } from './components/Header';
 
-import './style.css';
+import styles from './App.module.css';
+
+import './global.css';
+import { Sidebar } from './components/Sidebar';
 
 function App() {
 	return (
-		<diiv>
+		<div>
 			<Header />
-			<Post author="Vitor" content="Texto texto" />
-			<Post author="João" content="Aii uii" />
-		</diiv>
+
+			<div className={styles.wrapper}>
+				<Sidebar />
+				<main>
+					<Post />
+					<Post />
+				</main>
+			</div>
+		</div>
 	);
 }
 
