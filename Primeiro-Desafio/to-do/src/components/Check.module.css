@@ -3,8 +3,8 @@
 }
 
 .round label {
-	background-color: black;
-	border: 1px solid var(--blue);
+	background-color: #fff;
+	border: 1px solid #ccc;
 	border-radius: 50%;
 	cursor: pointer;
 	height: 28px;
@@ -35,6 +35,11 @@
 .round input[type='checkbox']:checked + label {
 	background-color: var(--purple-dark);
 	border-color: var(--purple-dark);
+}
+
+.round input[type='checkbox']:checked + label:hover {
+	background-color: var(--purple);
+	border-color: var(--purple);
 }
 
 .round input[type='checkbox']:checked + label:after {
