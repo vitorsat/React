@@ -1,0 +1,28 @@
+.task {
+	background-color: var(--gray-500);
+	color: white;
+	display: flex;
+	align-items: flex-start;
+	padding: 16px;
+	gap: 12px;
+	border-radius: 8px;
+	width: 736px;
+	height: 72px;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.task span {
+	font-size: 14px;
+	line-height: 140%;
+	font-weight: 400;
+	width: 632px;
+}
+
+.trash {
+	cursor: pointer;
+	color: var(--gray-300);
+}
+
+.trash:hover {
+	color: var(--danger);
+}

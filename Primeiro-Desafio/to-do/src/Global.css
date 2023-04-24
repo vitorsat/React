@@ -20,7 +20,7 @@
 }
 
 body {
-	background: var(--gray-600);
+	background: var(--gray-700);
 	-webkit-font-smoothing: antialiased;
 }
 

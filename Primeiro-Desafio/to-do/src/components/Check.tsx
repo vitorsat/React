@@ -3,7 +3,7 @@ import styles from './Check.module.css';
 import { Check as CheckIcon } from '@phosphor-icons/react';
 
 type CheckProps = {
-	checked: boolean;
+	checked?: boolean;
 };
 
 export function Check({ checked = false }: CheckProps) {
