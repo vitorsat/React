@@ -1,89 +1,38 @@
-button {
-	all: unset;
-}
-
-.CheckboxRoot {
+.Uncheck {
 	background-color: transparent;
-	width: 15px;
-	height: 15px;
+	width: 17px;
+	height: 17px;
 	border-radius: 20px;
 	cursor: pointer;
 	border: 2px solid var(--blue);
-	padding: 7px;
 
 	transition: background-color 0.2s ease-in-out;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.CheckboxRoot:hover {
+.Uncheck:hover {
 	background-color: var(--blue-dark);
 }
 
-.CheckoxIndicator {
-	width: 100%;
-	height: 100%;
-	border-radius: 20px;
-}
-
-img {
-	width: 100%;
-	height: 100%;
-	display: block;
-	object-fit: cover;
-	border-radius: 20px;
-}
-
-/* .CheckboxRoot:checked {
-	background-color: red;
-}
-
-.CheckboxRoot:checked .CheckoxIndicator {
-	background-color: var(--blue);
-} */
-
-/* .round {
-	position: relative;
-}
-
-.round label {
-	background-color: #fff;
-	border: 1px solid #ccc;
-	border-radius: 50%;
-	cursor: pointer;
-	height: 28px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 28px;
-}
-
-.round label:after {
-	border: 2px solid #fff;
-	border-top: none;
-	border-right: none;
-	content: '';
-	height: 6px;
-	left: 7px;
-	opacity: 0;
-	position: absolute;
-	top: 8px;
-	transform: rotate(-45deg);
-	width: 12px;
-}
-
-.round input[type='checkbox'] {
-	visibility: hidden;
-}
-
-.round input[type='checkbox']:checked + label {
+.Check {
 	background-color: var(--purple-dark);
-	border-color: var(--purple-dark);
+	width: 17px;
+	height: 17px;
+	border-radius: 20px;
+	cursor: pointer;
+	border: 2px solid var(--purple-dark);
+
+	transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.round input[type='checkbox']:checked + label:hover {
+.Check:hover {
 	background-color: var(--purple);
-	border-color: var(--purple);
+	border: 2px solid var(--purple);
 }
-
-.round input[type='checkbox']:checked + label:after {
-	opacity: 1;
-} */

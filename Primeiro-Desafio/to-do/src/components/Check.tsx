@@ -1,17 +1,26 @@
+import { useState } from 'react';
 import styles from './Check.module.css';
-import * as Checkbox from '@radix-ui/react-checkbox';
-import CheckIcon from '../Assets/CheckIcon.svg';
+import { Check as CheckIcon } from '@phosphor-icons/react';
 
 type CheckProps = {
 	checked: boolean;
 };
 
-export function Check({ checked = true }: CheckProps) {
+export function Check({ checked = false }: CheckProps) {
+	const [isChecked, setIsChecked] = useState(checked);
+
 	return (
-		<Checkbox.Root className={styles.CheckboxRoot} id="checkbox">
-			<Checkbox.Indicator className={styles.CheckoxIndicator}>
-				<img src={CheckIcon} alt="Check" />
-			</Checkbox.Indicator>
-		</Checkbox.Root>
+		<div
+			className={isChecked ? styles.Check : styles.Uncheck}
+			onClick={() => {
+				if (isChecked) setIsChecked(false);
+				else setIsChecked(true);
+			}}
+		>
+			{isChecked && <CheckIcon size={9} weight="bold" color="white" />}
+			{!isChecked && (
+				<CheckIcon size={9} weight="bold" color="var(--blue-dark)" />
+			)}
+		</div>
 	);
 }
