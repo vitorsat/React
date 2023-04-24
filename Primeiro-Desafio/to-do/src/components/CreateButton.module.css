@@ -1,0 +1,16 @@
+.CreateButton {
+	background-color: var(--blue-dark);
+	padding: 16px;
+	border-radius: 8px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+	gap: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.CreateButton:hover {
+	background-color: var(--blue);
+}

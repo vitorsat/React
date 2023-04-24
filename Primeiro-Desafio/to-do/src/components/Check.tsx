@@ -1,10 +1,17 @@
 import styles from './Check.module.css';
+import * as Checkbox from '@radix-ui/react-checkbox';
+import { CheckIcon } from '@radix-ui/react-icons';
 
-export function Check() {
+type CheckProps = {
+	checked: boolean;
+};
+
+export function Check({ checked = true }: CheckProps) {
 	return (
-		<div className={styles.round}>
-			<input type="checkbox" className={styles.input} id="checkbox" />
-			<label htmlFor="checkbox" className={styles.label}></label>
-		</div>
+		<Checkbox.Root className={styles.CheckboxRoot} id="checkbox">
+			<Checkbox.Indicator className={styles.CheckoxIndicator}>
+				<CheckIcon /> {/*Acionar o svg do assets*/}
+			</Checkbox.Indicator>
+		</Checkbox.Root>
 	);
 }

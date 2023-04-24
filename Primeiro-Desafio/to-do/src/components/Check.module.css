@@ -1,4 +1,39 @@
-.round {
+button {
+	all: unset;
+}
+
+.CheckboxRoot {
+	background-color: transparent;
+	width: 15px;
+	height: 15px;
+	border-radius: 20px;
+	cursor: pointer;
+	border: 2px solid var(--blue);
+
+	transition: background-color 0.2s ease-in-out;
+}
+
+.CheckboxRoot:hover {
+	background-color: var(--blue-dark);
+}
+
+.CheckoxIndicator {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border-radius: 20px;
+}
+
+.CheckboxRoot:checked {
+	background-color: red;
+}
+
+.CheckboxRoot:checked .CheckoxIndicator {
+	background-color: var(--blue);
+}
+
+/* .round {
 	position: relative;
 }
 
@@ -44,4 +79,4 @@
 
 .round input[type='checkbox']:checked + label:after {
 	opacity: 1;
-}
+} */
