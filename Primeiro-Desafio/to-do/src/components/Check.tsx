@@ -4,21 +4,20 @@ import { Check as CheckIcon } from '@phosphor-icons/react';
 
 type CheckProps = {
 	checked?: boolean;
+	setIsChecked?: any;
 };
 
-export function Check({ checked = false }: CheckProps) {
-	const [isChecked, setIsChecked] = useState(checked);
-
+export function Check({ checked, setIsChecked }: CheckProps) {
 	return (
 		<div
-			className={isChecked ? styles.Check : styles.Uncheck}
+			className={checked ? styles.Check : styles.Uncheck}
 			onClick={() => {
-				if (isChecked) setIsChecked(false);
+				if (checked) setIsChecked(false);
 				else setIsChecked(true);
 			}}
 		>
-			{isChecked && <CheckIcon size={9} weight="bold" color="white" />}
-			{!isChecked && (
+			{checked && <CheckIcon size={9} weight="bold" color="white" />}
+			{!checked && (
 				<CheckIcon size={9} weight="bold" color="var(--blue-dark)" />
 			)}
 		</div>

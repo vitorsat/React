@@ -7,14 +7,7 @@ import { Task } from './components/Task';
 import './global.css';
 
 function App() {
-	return (
-		<div className="App">
-			<Input placeholder="Adicione uma nova tarefa" />
-			<Check checked={false} />
-			<CreateButton />
-			<Task />
-		</div>
-	);
+	return <div className="App"></div>;
 }
 
 export default App;
