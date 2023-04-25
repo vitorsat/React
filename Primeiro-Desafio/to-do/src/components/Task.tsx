@@ -1,23 +1,54 @@
 import { Check } from './Check';
-import { Trash } from '@phosphor-icons/react';
+import { Trash } from '../Assets/Trash';
 import styles from './Task.module.css';
-import { useState } from 'react';
+import { TaskPropsArray } from '../App';
 
 export type TaskProps = {
-	checked?: boolean;
-	text?: string;
-	id?: number;
-	setIsChecked?: any;
+	id: string;
+	tasks: any;
+	setTasks: any;
+	tasksArray: TaskPropsArray[];
 };
 
-export function Task({ checked, text, id, setIsChecked }: TaskProps) {
+export function Task({ id, tasks, setTasks, tasksArray }: TaskProps) {
 	return (
-		<div className={styles.task} key={id}>
-			<Check checked={checked} setIsChecked={setIsChecked} />
-			<span className={checked ? styles.taskTextChecked : styles.taskText}>
-				{text}
+		<div
+			className={styles.task}
+			key={id}
+			onClick={() => console.log('clicou' + id)}
+		>
+			<Check
+				checked={tasks.checked}
+				setIsChecked={() => {
+					const newTasks = tasksArray.map((task: any) => {
+						if (task.id === id) {
+							console.log(task);
+							return {
+								...task,
+								id: task.id,
+								checked: !task.checked,
+							};
+						} else {
+							return task;
+						}
+					});
+					setTasks(newTasks);
+				}}
+			/>
+			<span
+				className={tasks.checked ? styles.taskTextChecked : styles.taskText}
+			>
+				{tasks.text}
 			</span>
-			<Trash size={24} className={styles.trash} />
+			<Trash
+				className={styles.trash}
+				onClick={() => {
+					const newTasks = tasksArray.filter(
+						(task: { id: any }) => task?.id !== id
+					);
+					setTasks(newTasks);
+				}}
+			/>
 		</div>
 	);
 }

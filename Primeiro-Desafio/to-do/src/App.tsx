@@ -3,14 +3,21 @@ import styles from './App.module.css';
 import { CreateButton } from './components/CreateButton';
 import { Header } from './components/Header';
 import { Input } from './components/Input';
-import { Task, TaskProps } from './components/Task';
+import { Task } from './components/Task';
+import { v4 as uuidv4 } from 'uuid';
 
 import Clipboard from './Assets/Clipboard.svg';
 
 import './global.css';
 
+export type TaskPropsArray = {
+	id: string;
+	text: string;
+	checked: boolean;
+};
+
 function App() {
-	const [tasks, setTasks] = useState<TaskProps[]>([]);
+	const [tasks, setTasks] = useState<TaskPropsArray[]>([]);
 	const [textInput, setTextInput] = useState('');
 
 	return (
@@ -27,7 +34,7 @@ function App() {
 				<CreateButton
 					onClick={() => {
 						const newTask = {
-							id: Math.random(),
+							id: uuidv4(),
 							text: textInput,
 							checked: false,
 						};
@@ -49,7 +56,7 @@ function App() {
 						<span className={styles.count}>
 							{tasks.length === 0 && 0}
 							{tasks.length > 0 &&
-								tasks.filter((task) => task.checked === true).length +
+								tasks.filter((task) => task?.checked === true).length +
 									` de ${tasks.length}`}
 						</span>
 					</span>
@@ -73,22 +80,11 @@ function App() {
 					{tasks.length > 0 &&
 						tasks.map((task) => (
 							<Task
-								key={task?.id}
-								id={task?.id}
-								text={task?.text}
-								checked={task?.checked}
-								setIsChecked={(checked: boolean) => {
-									const newTasks = tasks.map((task) => {
-										if (task?.id === task?.id) {
-											return {
-												...task,
-												checked,
-											};
-										}
-										return task;
-									});
-									setTasks(newTasks);
-								}}
+								key={task.id}
+								id={task.id}
+								tasks={task}
+								setTasks={setTasks}
+								tasksArray={tasks}
 							/>
 						))}
 				</div>
