@@ -7,7 +7,7 @@
 	gap: 12px;
 	border-radius: 8px;
 	width: 736px;
-	height: 72px;
+	max-height: 72px;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
 }
 

@@ -3,19 +3,19 @@ import { Trash } from '@phosphor-icons/react';
 import styles from './Task.module.css';
 import { useState } from 'react';
 
-type TaskProps = {
+export type TaskProps = {
 	checked?: boolean;
+	text?: string;
+	id?: number;
+	setIsChecked?: any;
 };
 
-export function Task({ checked }: TaskProps) {
-	const [isChecked, setIsChecked] = useState(checked);
-
+export function Task({ checked, text, id, setIsChecked }: TaskProps) {
 	return (
-		<div className={styles.task}>
-			<Check checked={isChecked} setIsChecked={setIsChecked} />
-			<span className={isChecked ? styles.taskTextChecked : styles.taskText}>
-				Integer urna interdum massa libero auctor neque turpis turpis semper.
-				Duis vel sed fames integer.
+		<div className={styles.task} key={id}>
+			<Check checked={checked} setIsChecked={setIsChecked} />
+			<span className={checked ? styles.taskTextChecked : styles.taskText}>
+				{text}
 			</span>
 			<Trash size={24} className={styles.trash} />
 		</div>
